@@ -30,8 +30,10 @@ class ViewController: UIViewController {
         //isFinishedTypingNumber = "tracker"
         isFinishedTypingNumber = true
         
-        let number = displayLabel.text
-        
+        guard let number = Double(displayLabel.text!) else {
+            fatalError("Cannot convert display label text to a Double.")
+        }
+                
     }
 
     
