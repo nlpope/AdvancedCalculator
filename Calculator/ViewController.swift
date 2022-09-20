@@ -10,23 +10,51 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
     
+//    var numArray: [String] = []
+
     @IBOutlet weak var displayLabel: UILabel!
     
+    //private = only accessible between the curly braces it rests in
+    //you wont accidently modify something via another class
+    private var isFinishedTypingNumber: Bool = true
+
     
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
         //What should happen when a non-number button is pressed
-    
+        //isFinishedTypingNumber = "tracker"
+        isFinishedTypingNumber = true
+        
+        let number = displayLabel.text
+        
     }
 
     
     @IBAction func numButtonPressed(_ sender: UIButton) {
         
-        //What should happen when a number is entered into the keypad
+        if let buttonValue  = sender.currentTitle {
+            
+            if isFinishedTypingNumber {
+                displayLabel.text = buttonValue
+                isFinishedTypingNumber = false
+            } else {
+                displayLabel.text = displayLabel.text! + buttonValue
+            }
+            
+        }
+
+//        if let buttonValue = sender.currentTitle {
+//            numArray.append(buttonValue)
+//            let toDisplay = numArray.joined(separator: "")
+//            displayLabel.text = toDisplay
+//        }
     
+
     }
 
 }
