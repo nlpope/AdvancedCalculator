@@ -33,6 +33,19 @@ class ViewController: UIViewController {
         guard let number = Double(displayLabel.text!) else {
             fatalError("Cannot convert display label text to a Double.")
         }
+        
+        if let calcMethod = sender.currentTitle {
+            if calcMethod == "+/-" {
+                displayLabel.text = String(number * -1)
+            }
+            else if calcMethod == "AC" {
+                displayLabel.text = "0"
+            }
+            else if calcMethod == "%" {
+                
+                displayLabel.text = String(number/100)
+            }
+        }
                 
     }
 
@@ -45,11 +58,17 @@ class ViewController: UIViewController {
                 displayLabel.text = buttonValue
                 isFinishedTypingNumber = false
             } else {
+                if buttonValue == "." {
+                    guard let isInt = floor(Double(displayLabel.text!)) else {
+                        fatalError("error tbd")
+                    }
+                }
                 displayLabel.text = displayLabel.text! + buttonValue
             }
             
         }
 
+        //OG CODE BY ME
 //        if let buttonValue = sender.currentTitle {
 //            numArray.append(buttonValue)
 //            let toDisplay = numArray.joined(separator: "")
