@@ -59,9 +59,14 @@ class ViewController: UIViewController {
                 isFinishedTypingNumber = false
             } else {
                 if buttonValue == "." {
-                    guard let isInt = floor(Double(displayLabel.text!)) else {
-                        fatalError("error tbd")
+                                        
+                    decimal.isEnabled = false
+                    
+                    guard let currentDisplayValue = Double(displayLabel.text!) else {
+                        fatalError("could not convert display label text to a Double")
                     }
+                    
+                    let isInt = floor(currentDisplayValue)
                 }
                 displayLabel.text = displayLabel.text! + buttonValue
             }
