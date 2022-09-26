@@ -31,8 +31,8 @@ class ViewController: UIViewController {
             return currentValue
         }
         //create setter that sets the display label whenever displayvalue is updated
-        set {
-            
+        set(buttonPressed) {
+//            displayLabel.text =
         }
     }
     
@@ -76,12 +76,7 @@ class ViewController: UIViewController {
             
         }
         
-        //OG CODE BY ME
-        //        if let buttonValue = sender.currentTitle {
-        //            numArray.append(buttonValue)
-        //            let toDisplay = numArray.joined(separator: "")
-        //            displayLabel.text = toDisplay
-        //        }
+             
         
         
     }
@@ -104,6 +99,14 @@ class ViewController: UIViewController {
  
  why i got rid of it: better to just scan for the "." charcter to avoid the double ".." crash problem
  source: Massimo Udemy video 307
+ 
+ ----------------
+ 
+ if let buttonValue = sender.currentTitle {
+     numArray.append(buttonValue)
+     let toDisplay = numArray.joined(separator: "")
+     displayLabel.text = toDisplay
+ }
  
  */
 
