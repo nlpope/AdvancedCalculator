@@ -31,8 +31,12 @@ class ViewController: UIViewController {
             return currentValue
         }
         //create setter that sets the display label whenever displayvalue is updated
-        set(buttonPressed) {
-//            displayLabel.text =
+        set {
+            if newValue == 0 {
+                displayLabel.text = "0"
+            } else {
+            displayLabel.text = String(newValue)
+            }
         }
     }
     
@@ -45,14 +49,14 @@ class ViewController: UIViewController {
         
         if let calcMethod = sender.currentTitle {
             if calcMethod == "+/-" {
-                displayLabel.text = String(displayValue * -1)
+                //displayValue gets a newValue, triggering the set
+                displayValue *= -1
             }
             else if calcMethod == "AC" {
-                displayLabel.text = "0"
+                displayValue = 0
             }
             else if calcMethod == "%" {
-                
-                displayLabel.text = String(displayValue/100)
+                displayValue *= 0.01
             }
         }
         
