@@ -6,16 +6,10 @@
 //  Copyright © 2019 London App Brewery. All rights reserved.
 //
 
-//test comment for git
-
 import UIKit
 
-
-
 class ViewController: UIViewController {
-    
-    //    var numArray: [String] = []
-    
+        
     @IBOutlet weak var displayLabel: UILabel!
     
     //private = only accessible between the curly braces it rests in
@@ -48,16 +42,7 @@ class ViewController: UIViewController {
         isFinishedTypingNumber = true
         
         if let calcMethod = sender.currentTitle {
-            if calcMethod == "+/-" {
-                //displayValue gets a newValue, triggering the set
-                displayValue *= -1
-            }
-            else if calcMethod == "AC" {
-                displayValue = 0
-            }
-            else if calcMethod == "%" {
-                displayValue *= 0.01
-            }
+            displayValue = CalculatorLogic.calculateIt(calcMethod, displayValue)
         }
         
     }
@@ -86,6 +71,11 @@ class ViewController: UIViewController {
     }
     
 }
+
+
+
+
+
 
 /**
  OG Snippets
