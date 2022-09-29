@@ -10,21 +10,51 @@ import Foundation
 
 class CalculatorLogic {
     
-    func calculateIt(_ calcMethod: String, _ displayValue: Double) -> Double {
-        var returnedValue = displayValue
+    var displayNumber: Double
+    init(displayNumber: Double) {
+        self.displayNumber = displayNumber
+    }
+    
+    func calculateIt(_ calcMethod: String) -> Double {
         
         if calcMethod == "+/-" {
             //displayValue gets a newValue, triggering the setter
-            returnedValue *= -1
+            return displayNumber * -1
         }
         else if calcMethod == "AC" {
-            returnedValue = 0
+            return displayNumber * 0
         }
         else if calcMethod == "%" {
-            returnedValue *= 0.01
+            return displayNumber * 0.01
+        } else {
+            return displayNumber
+            
         }
         
-        return returnedValue
+        
     }
     
 }
+
+/**
+ *OG calculateIt() func - mines*
+ *Nixed it in favor if Angela's method - global var with an init to account for the displayValue*
+ 
+ func calculateIt(_ calcMethod: String, _ displayValue: Double) -> Double {
+     var returnedValue = displayValue
+     
+     if calcMethod == "+/-" {
+         //displayValue gets a newValue, triggering the setter
+         returnedValue *= -1
+     }
+     else if calcMethod == "AC" {
+         returnedValue = 0
+     }
+     else if calcMethod == "%" {
+         returnedValue *= 0.01
+     }
+     
+     return returnedValue
+ }
+ 
+ */

@@ -41,8 +41,8 @@ class ViewController: UIViewController {
         //isFinishedTypingNumber = "tracker"
         isFinishedTypingNumber = true
         
-        if let calcMethod = sender.currentTitle {
-            displayValue = CalculatorLogic.calculateIt(calcMethod, displayValue)
+        if let calcMethod = Double(sender.currentTitle!) {
+            displayValue = CalculatorLogic(displayNumber: calcMethod).calculateIt(calcMethod)
         }
         
     }
