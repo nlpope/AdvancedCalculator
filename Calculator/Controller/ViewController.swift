@@ -12,6 +12,7 @@ class ViewController: UIViewController {
         
     @IBOutlet weak var displayLabel: UILabel!
     
+    
     //private = only accessible between the curly braces it rests in
     //you wont accidently modify something via another class
     private var isFinishedTypingNumber: Bool = true
@@ -41,9 +42,16 @@ class ViewController: UIViewController {
         //isFinishedTypingNumber = "tracker"
         isFinishedTypingNumber = true
         
-        if let calcMethod = Double(sender.currentTitle!) {
-            displayValue = CalculatorLogic(displayNumber: calcMethod).calculateIt(calcMethod)
-        }
+        
+        let calculator = CalculatorLogic(displayNumber: displayValue)
+        
+        displayValue = calculator.calculateIt(sender.currentTitle!)!
+        
+//        if let calcMethod = sender.currentTitle {
+//            displayValue = CalculatorLogic(displayNumber: displayValue).calculateIt(sender.currentTitle!)
+//        } else {
+//            print("sender.currentTitle is nil")
+//        }
         
     }
     

@@ -15,21 +15,20 @@ class CalculatorLogic {
         self.displayNumber = displayNumber
     }
     
-    func calculateIt(_ calcMethod: String) -> Double {
+    func calculateIt(_ calcMethod: String) -> Double? {
         
         if calcMethod == "+/-" {
             //displayValue gets a newValue, triggering the setter
             return displayNumber * -1
         }
         else if calcMethod == "AC" {
-            return displayNumber * 0
+            return 0
         }
         else if calcMethod == "%" {
             return displayNumber * 0.01
-        } else {
-            return displayNumber
-            
         }
+        
+        return nil
         
         
     }
