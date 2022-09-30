@@ -42,10 +42,19 @@ class ViewController: UIViewController {
         //isFinishedTypingNumber = "tracker"
         isFinishedTypingNumber = true
         
+        if let calcMethod = sender.currentTitle {
+            
+            let calculator = CalculatorLogic(displayNumber: displayValue)
+            
+            guard let result = calculator.calculateIt(calcMethod) else {
+                fatalError("The result of the calculation is nil.")
+            }
+            displayValue = result
+            
+        } else {
+            fatalError("calcMethod is nil")
+        }
         
-        let calculator = CalculatorLogic(displayNumber: displayValue)
-        
-        displayValue = calculator.calculateIt(sender.currentTitle!)!
         
 //        if let calcMethod = sender.currentTitle {
 //            displayValue = CalculatorLogic(displayNumber: displayValue).calculateIt(sender.currentTitle!)
