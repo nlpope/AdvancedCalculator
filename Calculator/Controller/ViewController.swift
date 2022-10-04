@@ -35,6 +35,8 @@ class ViewController: UIViewController {
         }
     }
     
+    //set all global variaables to private by default
+    private var calculator = CalculatorLogic()
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
@@ -42,10 +44,10 @@ class ViewController: UIViewController {
         //isFinishedTypingNumber = "tracker"
         isFinishedTypingNumber = true
         
+        calculator.setNumber(displayValue)
+        
         if let calcMethod = sender.currentTitle {
-            
-            let calculator = CalculatorLogic(displayNumber: displayValue)
-            
+                        
             guard let result = calculator.calculateIt(calcMethod) else {
                 fatalError("The result of the calculation is nil.")
             }
