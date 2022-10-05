@@ -12,11 +12,15 @@ struct CalculatorLogic {
     
     private var displayNumber: Double?
     
-    func setNumber(_: Double?) {
-        
+    //create as a touple that can store a string and a double?
+    //global var: set private
+    private var intermediateCalculation: (n1: Double, symbol: String)?
+    
+    mutating func setNumber(_ number: Double?) {
+        self.displayNumber = number
     }
     
-    func calculateIt(_ calcMethod: String) -> Double? {
+    mutating func calculateIt(_ calcMethod: String) -> Double? {
         
         if let n = displayNumber {
             if calcMethod == "+/-" {
@@ -29,12 +33,25 @@ struct CalculatorLogic {
             else if calcMethod == "%" {
                 return n * 0.01
             }
+            else if calcMethod == "=" {
+               return performTwoNumCalculation(n2: n)
+            }
+            else {
+                intermediateCalculation = (n1: n, symbol: calcMethod)
+            }
         }
-      
-        
         return nil
-        
-        
+    }
+    
+    private func performTwoNumCalculation(n2: Double) -> Double {
+        // optional binding = if "interm...n1" is not nil, bind it to "nubmer1"
+        if let n1 = intermediateCalculation?.n1, let operation = intermediateCalculation?.symbol {
+            
+            if operation == "+" {
+                return n1 + n2
+            }
+    
+        }
     }
     
 }

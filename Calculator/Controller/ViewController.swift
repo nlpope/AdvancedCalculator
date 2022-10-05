@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         }
     }
     
-    //set all global variaables to private by default
+    //set all global variables to private by default
     private var calculator = CalculatorLogic()
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
