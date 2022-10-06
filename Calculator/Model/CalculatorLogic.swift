@@ -24,7 +24,7 @@ struct CalculatorLogic {
         
         if let n = displayNumber {
             if calcMethod == "+/-" {
-                //displayValue gets a newValue, triggering the setter
+                //displayValue gets a newValue, triggering the setter in the view controller
                 return n * -1
             }
             else if calcMethod == "AC" {
