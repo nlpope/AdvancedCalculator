@@ -43,15 +43,25 @@ struct CalculatorLogic {
         return nil
     }
     
-    private func performTwoNumCalculation(n2: Double) -> Double {
-        // optional binding = if "interm...n1" is not nil, bind it to "nubmer1"
+    private func performTwoNumCalculation(n2: Double) -> Double? {
+        // optional binding = if "interm...n1" is not nil, bind it to "n1"
         if let n1 = intermediateCalculation?.n1, let operation = intermediateCalculation?.symbol {
             
-            if operation == "+" {
+            switch operation {
+            case "+":
                 return n1 + n2
+            case "-":
+                return n1 - n2
+            case "÷":
+                return n1 / n2
+            case "×":
+                return n1 * n2
+            default:
+                fatalError("The operation passed doesn't match any of the cases")
             }
-    
+           
         }
+        return nil
     }
     
 }
