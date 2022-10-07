@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         if let calcMethod = sender.currentTitle {
                         
             guard let result = calculator.calculateIt(calcMethod) else {
-                fatalError("The result of the calculation is nil.")
+                fatalError("The result of the calculation is nilz.")
             }
             displayValue = result
             

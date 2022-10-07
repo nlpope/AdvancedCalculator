@@ -12,7 +12,7 @@ struct CalculatorLogic {
     
     private var displayNumber: Double?
     
-    //create as a touple that can store a string and a double?
+    //create a touple that can store a string and a double?
     //global var: set private
     private var intermediateCalculation: (n1: Double, symbol: String)?
     
@@ -22,21 +22,21 @@ struct CalculatorLogic {
     
     mutating func calculateIt(_ calcMethod: String) -> Double? {
         
+        print(displayNumber!)
+        //problem child? calcMethod looks fine so im lookin at the n in intermediateCalc.. in the default
         if let n = displayNumber {
-            if calcMethod == "+/-" {
+            
+            switch calcMethod {
+            case "+/-":
                 //displayValue gets a newValue, triggering the setter in the view controller
                 return n * -1
-            }
-            else if calcMethod == "AC" {
+            case "AC":
                 return 0
-            }
-            else if calcMethod == "%" {
-                return n * 0.01
-            }
-            else if calcMethod == "=" {
-               return performTwoNumCalculation(n2: n)
-            }
-            else {
+            case "%":
+                return n / 0.01
+            case "=":
+                return performTwoNumCalculation(n2: n)
+            default:
                 intermediateCalculation = (n1: n, symbol: calcMethod)
             }
         }
@@ -46,6 +46,7 @@ struct CalculatorLogic {
     private func performTwoNumCalculation(n2: Double) -> Double? {
         // optional binding = if "interm...n1" is not nil, bind it to "n1"
         if let n1 = intermediateCalculation?.n1, let operation = intermediateCalculation?.symbol {
+            print("n1 = \(n1), operation = \(operation)")
             
             switch operation {
             case "+":
