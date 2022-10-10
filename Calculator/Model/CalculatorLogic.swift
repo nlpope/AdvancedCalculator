@@ -22,14 +22,14 @@ struct CalculatorLogic {
     
     mutating func calculateIt(_ calcMethod: String) -> Double? {
         
-        print(displayNumber!)
         //problem child? calcMethod looks fine so im lookin at the n in intermediateCalc.. in the default
         if let n = displayNumber {
-            
+            print(displayNumber!)
+            print(calcMethod)
             switch calcMethod {
             case "+/-":
                 //displayValue gets a newValue, triggering the setter in the view controller
-                return n * -1
+                print(n * -1)
             case "AC":
                 return 0
             case "%":
@@ -40,6 +40,7 @@ struct CalculatorLogic {
                 intermediateCalculation = (n1: n, symbol: calcMethod)
             }
         }
+        
         return nil
     }
     
