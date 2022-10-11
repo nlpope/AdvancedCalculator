@@ -56,7 +56,7 @@ class ViewController: UIViewController {
             displayValue = result
             
         } else {
-            fatalError("calcMethod is nilzz")
+            fatalError("calcMethod is nilzzzzzzz")
         }
         
     }
@@ -115,6 +115,8 @@ class ViewController: UIViewController {
      let toDisplay = numArray.joined(separator: "")
      displayLabel.text = toDisplay
  }
+ 
+ testing 10/11
  
  */
 
