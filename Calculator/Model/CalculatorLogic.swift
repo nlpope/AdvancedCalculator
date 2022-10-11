@@ -34,7 +34,7 @@ struct CalculatorLogic {
                 return 0
             case "%":
                 return n / 0.01
-            case "=":
+            case "= i":
                 return performTwoNumCalculation(n2: n)
             default:
                 intermediateCalculation = (n1: n, symbol: calcMethod)
