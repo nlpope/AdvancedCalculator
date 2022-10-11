@@ -5,6 +5,7 @@
 //  Created by Angela Yu on 10/09/2019.
 //  Copyright © 2019 London App Brewery. All rights reserved.
 //
+// testing new token after usiung newly regenerated token into xcode account preferenceces > Github
 
 import UIKit
 
@@ -35,7 +36,7 @@ class ViewController: UIViewController {
         }
     }
     
-    //i set all global variables to private by default
+    //set all global variables to private by default
     private var calculator = CalculatorLogic()
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
@@ -55,7 +56,7 @@ class ViewController: UIViewController {
             displayValue = result
             
         } else {
-            fatalError("calcMethod is nil")
+            fatalError("calcMethod is nilzz")
         }
         
     }
