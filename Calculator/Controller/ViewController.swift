@@ -56,7 +56,7 @@ class ViewController: UIViewController {
             displayValue = result
             
         } else {
-            fatalError("calcMethod is nilzzzzzzz")
+            fatalError("calcMethod is nil")
         }
         
     }
