@@ -25,6 +25,7 @@ class ViewController: UIViewController {
                 fatalError("could not convert display label text to a Double")
             }
             return currentValue
+            
         }
         //create setter that sets the display label whenever displayvalue is updated
         set {
@@ -50,13 +51,10 @@ class ViewController: UIViewController {
         
         if let calcMethod = sender.currentTitle {
                         
-            guard let result = calculator.calculateIt(calcMethod) else {
-                fatalError("The result of the calculation is nil.")
-            }
-            displayValue = result
+            guard let result = calculator.calculateIt(calcMethod) else {return}
+                displayValue = result
             
-        } else {
-            fatalError("calcMethod is nil")
+            
         }
         
     }
