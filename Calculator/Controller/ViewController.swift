@@ -50,11 +50,12 @@ class ViewController: UIViewController {
         calculator.setNumber(displayValue)
         
         if let calcMethod = sender.currentTitle {
-                        
+                  
+            //calculateIt() can return nil so keep the guard
             guard let result = calculator.calculateIt(calcMethod) else {return}
-                displayValue = result
             
-            
+            displayValue = result
+
         }
         
     }
